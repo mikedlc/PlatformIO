@@ -22,7 +22,6 @@ void printWifiStatus();
 //For 1.3in displays
 #include <Adafruit_GFX.h>
 #include <Adafruit_SH110X.h>
-/* Uncomment the initialize the I2C address , uncomment only one, If you get a totally blank screen try the other*/
 #define i2c_Address 0x3c //initialize with the I2C addr 0x3C Typically eBay OLED's
 #define SCREEN_WIDTH 128 // OLED display width, in pixels
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
@@ -55,7 +54,7 @@ String pressuretoprint;
 
 //Sensor setup & payload variables
 const int SensorPin = A0;
-const float alpha = 0.95; // Low Pass Filter alpha (0 - 1 ). .95 was way too slow
+const float alpha = 0.95; // Low Pass Filter alpha (0 - 1 ).
 const float aRef = 5; // analog reference
 float filteredVal = 512; // midway starting point
 //float x1Val = .78; //voltage at 0 psi
@@ -223,27 +222,26 @@ void loop() {
   // write the buffer to the display
   display.display();
 
+/*
   //BINARY SENSOR
   int status;
   status = digitalRead(BINARYPIN);
   Serial.print("BINARYPIN Status: ");
   Serial.println(status);
-  if (status == HIGH)
-  {
+  if (status == HIGH){
     Serial.println("BINARY SENSOR OPEN");
   }
-  else
-  {
+  else{
     Serial.println("BINARY SENSOR CLOSED");
   }
-
+*/
   // if upload interval has passed since your last connection,
   // then connect again and send data to tago.io
-  /*  
+/*  
   Serial.print("currentMillis: "); Serial.println(currentMillis, 0);
   Serial.print("lastConnectionTime: "); Serial.println(lastConnectionTime, 0);
   Serial.print("PostingInterval: "); Serial.println(postingInterval, 0);
-  */
+*/
   if (currentMillis - lastConnectionTime > postingInterval) {
     Serial.println("Time to post to tago.io!");
     // then, send data to Tago
