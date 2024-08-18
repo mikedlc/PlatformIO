@@ -18,6 +18,7 @@ void httpRequest();
 void printWifiStatus();
 
 /*for 1.3 display*/
+#pragma region "For 1.3in displays"
 #include <Adafruit_GFX.h>
 #include <Adafruit_SH110X.h>
 /* Uncomment the initialize the I2C address , uncomment only one, If you get a totally blank screen try the other*/
@@ -26,6 +27,7 @@ void printWifiStatus();
 #define SCREEN_HEIGHT 64 // OLED display height, in pixels
 #define OLED_RESET -1   //   QT-PY / XIAO
 Adafruit_SH1106G display = Adafruit_SH1106G(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, OLED_RESET);
+#pragma endregion
 
 //This ProgramID is the name of the sketch and identifies what code is running on the D1 Mini
 const char* ProgramID = "LMWA_d1_002";
