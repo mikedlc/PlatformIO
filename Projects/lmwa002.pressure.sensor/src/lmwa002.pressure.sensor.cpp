@@ -15,6 +15,7 @@ const char* ProgramID = "LMWA002";
 #include <SPI.h>
 #include <Wire.h>
 
+//Function definitions
 float roundoff(float value, unsigned char prec);
 void httpRequest();
 void printWifiStatus();
@@ -315,5 +316,3 @@ void printWifiStatus() {
   Serial.println(" dBm");
   Serial.println("");
 }
-
-//Do you see me?
